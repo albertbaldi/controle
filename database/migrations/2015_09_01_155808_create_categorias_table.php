@@ -14,6 +14,12 @@ class CreateCategoriasTable extends Migration
     {
         Schema::create('categorias', function (Blueprint $table) {
             $table->increments('id');
+						$table->timestamp('data');
+						$table->timestamp('vencimento');
+						$table->string('descricao');
+						$table->decimal('valor',15, 2);
+						$table->integer('parcelas');
+						$table->integer('parcela');
             $table->timestamps();
         });
     }
