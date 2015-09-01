@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'CategoriaController@index');
+Route::get('categoria/create', 'CategoriaController@create');
+Route::post('categoria/store', ['as' => 'categoria.store', 'uses' => 'CategoriaController@store']);

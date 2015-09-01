@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -16,7 +16,9 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        //
+        $rows = \App\Categoria::paginate(10);
+        
+        return view('categoria.index')->with(compact('rows'));
     }
 
     /**
@@ -26,7 +28,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('categoria._form');
     }
 
     /**
@@ -37,7 +39,9 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $row = \App\Categoria::create($request::all());
+
+        return redirect()->action('CategoriaController@index');
     }
 
     /**
