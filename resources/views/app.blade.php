@@ -35,7 +35,7 @@
 					<ul class="nav navbar-nav">
 						<li><a href="{{ url('/') }}">Home</a></li>
 					</ul>
-
+<!--
 					<ul class="nav navbar-nav navbar-right">
 						@if (Auth::guest())
 						<li><a href="{{ url('/auth/login') }}">Login</a></li>
@@ -49,6 +49,7 @@
 						</li>
 						@endif
 					</ul>
+-->
 				</div>
 			</div>
 		</nav>
@@ -56,7 +57,9 @@
 		@yield('content')
 
 		<!-- Scripts -->
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		<script src="{!! asset('/js/jquery-2.1.4.min.js') !!}"></script>
+		<script src="{!! asset('/js/bootstrap.min.js') !!}"></script>
+		<script src="{!! asset('/js/jquery.mask.js') !!}"></script>
+		<script src="{!! asset('/js/app.js') !!}"></script>
 	</body>
 	</html>
