@@ -7,26 +7,34 @@
 	Total de registros: {!! $rows->count() !!}
 </div>
 
-<a href="{{ action('CategoriaController@create') }}" class="btn btn-sm btn-primary">novo</a>
-
+<p>
+	<a href="{{ route('categoria.create') }}" class="btn btn-sm btn-primary">novo</a>
+</p>
 @if($rows->count())
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th>Nome</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach ($rows as $row)
-		<tr>
-			<td>{!! $row->nome !!}</td>
-			<td></td>
-		</tr>
-		@endforeach
-	</tbody>
-</table>
-
+<div class="panel panel-primary">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach ($rows as $row)
+			<tr>
+				<td>{!! $row->nome !!}</td>
+				<td>
+					<a href="{{ route('categoria.edit', [$row->id]) }}"><span class="glyphicon glyphicon-edit"></span></a>
+					<a href="{{ route('categoria.destroy', [$row->id]) }}"><span class="glyphicon glyphicon-trash"></span></a>
+				</td>
+			</tr>
+			@endforeach
+		</tbody>
+	</table>
+</div>
+<div class="text-center">
+	{!! $rows->render() !!}
+</div>
 @else
 <p>Sem registros</p>
 @endif

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Request;
+use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class CategoriaController extends Controller
+class DespesaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $rows = \App\Categoria::paginate(4);
-        
-        return view('categoria.index')->with(compact('rows'));
+        //
     }
 
     /**
@@ -28,7 +26,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        return view('categoria.create');
+        //
     }
 
     /**
@@ -39,9 +37,7 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        $row = \App\Categoria::create($request::all());
-
-        return redirect()->route('categoria.index');
+        //
     }
 
     /**
@@ -63,9 +59,7 @@ class CategoriaController extends Controller
      */
     public function edit($id)
     {
-        $row = \App\Categoria::find($id);
-
-        return view('categoria.edit')->with(compact('row'));
+        //
     }
 
     /**
@@ -77,10 +71,7 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $row = \App\Categoria::find($id);
-        $row->update($request::all());
-        
-        return redirect()->route('categoria.index');
+        //
     }
 
     /**
@@ -91,8 +82,6 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        \App\Categoria::destroy($id);
-
-        return redirect()->route('categoria.index');
+        //
     }
 }

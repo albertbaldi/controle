@@ -6,7 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Laravel</title>
 
-	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+	<link href="{!! asset('/css/app.css') !!}" rel="stylesheet">
+	<link href="{!! asset('/css/custom.css') !!}" rel="stylesheet">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -49,17 +50,17 @@
 						</li>
 						@endif
 					</ul>
--->
-				</div>
+				-->
 			</div>
-		</nav>
+		</div>
+	</nav>
 
-		@yield('content')
+	@yield('content')
 
-		<!-- Scripts -->
-		<script src="{!! asset('/js/jquery-2.1.4.min.js') !!}"></script>
-		<script src="{!! asset('/js/bootstrap.min.js') !!}"></script>
-		<script src="{!! asset('/js/jquery.mask.js') !!}"></script>
-		<script src="{!! asset('/js/app.js') !!}"></script>
-	</body>
-	</html>
+	<!-- Scripts -->
+	<script src="{!! asset('/js/jquery-2.1.4.min.js') !!}"></script>
+	<script src="{!! asset('/js/bootstrap.min.js') !!}"></script>
+	<script src="{!! asset('/js/jquery.mask.js') !!}"></script>
+	<script src="{!! asset('/js/app.js') !!}"></script>
+</body>
+</html>
