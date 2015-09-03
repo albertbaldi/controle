@@ -16,7 +16,9 @@ class DespesaController extends Controller
      */
     public function index()
     {
-        //
+        $rows = \App\Despesa::paginate(10);
+
+        return view('despesa.index')->with(compact('rows'));
     }
 
     /**
@@ -26,7 +28,9 @@ class DespesaController extends Controller
      */
     public function create()
     {
-        //
+        $categorias = \App\Categoria::lists('nome', 'id');
+        
+        return view('despesa.create')->with(compact('categorias'));
     }
 
     /**
