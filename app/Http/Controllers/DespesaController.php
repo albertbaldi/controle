@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -41,7 +41,9 @@ class DespesaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        \App\DespesaController::create($request::all());
+
+        return redirect()->route('despesa.index');
     }
 
     /**

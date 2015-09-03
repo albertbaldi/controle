@@ -17,9 +17,12 @@ class CreateDespesasTable extends Migration
             $table->timestamp('data');
             $table->timestamp('vencimento');
             $table->string('descricao');
-            $table->integer('parecela');
-            $table->integer('parecelas');
+            $table->integer('parcela');
+            $table->integer('parcelas');
             $table->decimal('valor', 15, 2);
+            $table->integer('categoria_id')->unsigned();
+            $table->foreign('categoria_id')->references('id')->on('categorias');
+
             $table->timestamps();
         });
     }
