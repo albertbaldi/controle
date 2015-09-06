@@ -7,6 +7,8 @@ use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\DespesaItem;
+
 class DespesaController extends Controller
 {
     /**
@@ -16,7 +18,7 @@ class DespesaController extends Controller
      */
     public function index()
     {
-        $rows = \App\Despesa::paginate(10);
+        $rows = \App\Despesa::sortable()->paginate(10);
 
         return view('despesa.index')->with(compact('rows'));
     }
@@ -41,7 +43,24 @@ class DespesaController extends Controller
      */
     public function store(Request $request)
     {
-        \App\DespesaController::create($request::all());
+        $despesa = \App\Despesa::create($request::all());
+
+        $tipoValor = $request::Input('tipoValor');
+        $dataCarbon = \Carbon\Carbon::createFromFormat('d/m/Y', $despesa->data);
+        
+        // cria as parcelas da despesa
+        for ($parcela = 1; $parcela <= $despesa->parcelas; $parcela++) {
+            $despesaItem = new DespesaItem();
+            $despesaItem->despesa_id = $despesa->id;
+            $despesaItem->parcela = $parcela;
+            $despesaItem->data = $dataCarbon->addMonths($parcela);
+            if($tipoValor == 'total')
+                $despesaItem->valor = ($despesa->valor / $despesa->parcelas);
+            else
+                $despesaItem->valor = $despesa->valor;
+
+            $despesa->items()->save($despesaItem);
+        }
 
         return redirect()->route('despesa.index');
     }
@@ -54,7 +73,9 @@ class DespesaController extends Controller
      */
     public function show($id)
     {
-        //
+        $row = \App\Despesa::find($id);
+
+        return view('despesa.show')->with(compact('row'));
     }
 
     /**
@@ -88,6 +109,8 @@ class DespesaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        \App\Despesa::destroy($id);
+
+        return redirect()->route('despesa.index');
     }
 }

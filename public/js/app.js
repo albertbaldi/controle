@@ -47,12 +47,12 @@ $(document).ready(function(){
 			});
 	});
 
-	$("#parcelas").on("change paste keyup", function() {
-		setParcela();
-	});
-	$("#valor").on("change paste keyup", function() {
-		setParcela();
-	});
+	// $("#parcelas").on("change paste keyup", function() {
+	// 	setParcela();
+	// });
+	// $("#valor").on("change paste keyup", function() {
+	// 	setParcela();
+	// });
 });
 
 function setParcela() {
@@ -68,6 +68,7 @@ function setParcela() {
 	
 	parcela.val(result.toFixed(2));
 }
+
 function getFormatedDate (date) {
 	var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
 	var month = (date.getMonth() + 1) < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1);

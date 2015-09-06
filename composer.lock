@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c83970bd0fd0e6d1399514d11fdf3455",
+    "hash": "694482d06463360047089aadec975ee0",
     "packages": [
         {
             "name": "bestmomo/scafold",
@@ -448,6 +448,50 @@
                 "tokenizer"
             ],
             "time": "2015-03-11 20:06:43"
+        },
+        {
+            "name": "kyslik/column-sortable",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kyslik/column-sortable.git",
+                "reference": "960327ad89b8ed946939ae4bd92608a7e955643d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kyslik/column-sortable/zipball/960327ad89b8ed946939ae4bd92608a7e955643d",
+                "reference": "960327ad89b8ed946939ae4bd92608a7e955643d",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.1.*",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Kyslik\\ColumnSortable": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Kiesel",
+                    "email": "martinkiesel@gmail.com"
+                }
+            ],
+            "description": "Package for handling column sorting in Laravel 5.",
+            "keywords": [
+                "column",
+                "laravel",
+                "laravel5",
+                "sortable",
+                "sorting"
+            ],
+            "time": "2015-08-06 10:47:33"
         },
         {
             "name": "laravel/framework",

@@ -4,9 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Kyslik\ColumnSortable\Sortable;
+
 class Despesa extends Model
 {
-	protected $fillable = ['data', 'vencimento', 'descricao', 'parecela', 'parcelas', 'valor', 'categoria_id'];
+	use Sortable;
+
+	protected $sortable = ['data', 'descricao', 'parcelas', 'valor']; //ommitable
+
+	protected $fillable = ['data', 'descricao','parcelas', 'valor', 'categoria_id'];
+	
 	protected $guarded = ['id'];
 
 	public function categoria()
@@ -14,4 +21,8 @@ class Despesa extends Model
 		return $this->belongsTo('App\Categoria');
 	}
 
+	public function items()
+	{
+		return $this->hasMany('App\DespesaItem');
+	}
 }

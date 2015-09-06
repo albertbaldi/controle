@@ -28,4 +28,6 @@ Route::post('despesa/create', ['as' => 'despesa.store', 'uses' => 'DespesaContro
 Route::get('despesa/{id}', ['as' => 'despesa.edit', 'uses' => 'DespesaController@edit']);
 Route::post('despesa/{id}', ['as' => 'despesa.update', 'uses' => 'DespesaController@update']);
 Route::get('despesa/destroy/{id}', ['as' => 'despesa.destroy', 'uses' => 'DespesaController@destroy']);
+Route::get('despesa/show/{id}', ['as' => 'despesa.show', 'uses' => 'DespesaController@show']);
 
+Route::get('despesa/{id}/itens', ['as' => 'despesaItem.index', 'uses' => 'DespesaItemController@index']);

@@ -16,8 +16,10 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>Data</th>
-				<th>Descrição</th>
+				<th>@sortablelink ('data')</th>
+				<th>@sortablelink ('descricao', 'Descrição')</th>
+				<th>@sortablelink ('parcelas')</th>
+				<th>@sortablelink ('valor')</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -26,7 +28,10 @@
 			<tr>
 				<td>{!! $row->data !!}</td>
 				<td>{!! $row->descricao !!}</td>
+				<td>{!! $row->parcelas !!}</td>
+				<td>R$ {!! number_format($row->items()->sum('valor'), 2, ',', '.') !!}</td>
 				<td>
+					<a href="{{ route('despesa.show', [$row->id]) }}"><span class="glyphicon glyphicon-search"></span></a>
 					<a href="{{ route('despesa.edit', [$row->id]) }}"><span class="glyphicon glyphicon-edit"></span></a>
 					<a href="{{ route('despesa.destroy', [$row->id]) }}"><span class="glyphicon glyphicon-trash"></span></a>
 				</td>
